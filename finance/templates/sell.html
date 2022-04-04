@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Sell
+{% endblock %}
+
+{% block main %}
+  <h3>To sell shares</h3><br>
+  <form name="sell" action="/sell" method="POST">
+    <div class="form-group">
+      <input class="form-control" id="sell" name="symbol" type="text" placeholder="Symbol">
+    </div>
+    <div class="form-group">
+      <input class="form-control" name="shares" type="number" placeholder="Shares" required>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </form>
+  
+  <script>
+    document.querySelector("#sell").value = location.search.substring(1);
+  </script>
+  
+{% endblock %}

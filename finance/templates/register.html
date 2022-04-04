@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Register
+{% endblock %}
+
+{% block main %}
+
+  <form action="/register" method="post" name="check" onsubmit="myFunction(); return true">
+    <div class="form-group">
+      <input id="user" autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text">
+    </div>
+    <div class="form-group">
+      <input class="form-control" name="password" placeholder="Password" type="password">
+    </div>
+    <div class="form-group">
+      <input class="form-control" name="confirmation" placeholder="Confirmation" type="password">
+    </div>
+    <button class="btn btn-primary" type="submit">Register</button>
+  </form><br>
+
+  <!--<form action="/check" method="get" target="_blank">
+    <div class="form-group">
+      <input autocomplete="off" class="form-control" name="username" placeholder="Check username" type="text">
+    </div>
+    <button class="btn btn-primary" type="submit">Availability check</button>
+  </form>-->
+
+{% endblock %}

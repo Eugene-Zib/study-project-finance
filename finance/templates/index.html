@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Index
+{% endblock %}
+
+{% block main %}
+  <h1>Portfolio of stocks of the user {{ username }}</h1>
+  <table class="index">
+    <thead class="index">
+      <tr>
+        <th>Buy</th>
+        <th>Sell</th>
+        <th>Symbol</th>
+        <th>Name</th>
+        <th>Shares</th>
+        <th>Price</th>
+        <th>TOTAL</th>
+      </tr>
+    </thead>
+    <tbody class="index">
+      {% for row in show %}
+      <tr>
+          <td><button id="{{ loop.index }}" name="buy" value={{ row["symbol"] }} onclick="buy({{loop.index}}); return true">Buy</button></td>
+          <td><button type="button" name="sell" id="{{ loop.index }}" value={{ row["symbol"] }} onclick="sell({{loop.index}}); return true">Sell</button></td>
+          <td>{{ row["symbol"] }}</td>
+          <td>{{ row["name"] }}</td>
+          <td>{{ row["shares"] }}</td>
+          <td>{{ row["price"] }}</td>
+          <td>{{ row["total"] }}</td>
+      </tr>
+      {% endfor %}
+      <tr>
+        <td>CASH</td>
+        <td colspan="6" class="total">{{ cash }}</td>
+      </tr>
+      <tr>
+        <td colspan="7" id="total">{{ cash_total }}</td>
+      </tr>
+    </tbody>
+  </table>
+{% endblock %}
